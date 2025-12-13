@@ -1,5 +1,5 @@
 
-A lightweight pub/sub event bus with optional spatial-zone mouse enter/leave detection. 
+A lightweight pub/sub event bus with spatial-zone mouse enter/leave detection. 
 
 ---
 
