@@ -119,7 +119,7 @@ Dim onEnter As Action(Of Object) = Sub(evt)
 End Sub
 
 Dim onLeave As Action(Of Object) = Sub(evt)
-    Dim zoneId = CStr(CallByName(evt, "ZoneId", CallType. Get))
+    Dim zoneId = CStr(CallByName(evt, "ZoneId", CallType.Get))
     If zoneId = "MyButtonZone" Then
         Console.WriteLine("Mouse left MyButtonZone")
     End If
