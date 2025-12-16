@@ -3,35 +3,34 @@ A lightweight pub/sub event bus with spatial-zone mouse enter/leave detection.
 
 ---
 
-## Accessing the Plugin
-
+&nbsp;&nbsp;Accessing the Plugin<br>
 ```vb
 Dim aggregator = PluginLocator. Get(Of Object)("EventAggregator")
 ```
 
 ---
 
-## Core Events API
+&nbsp;&nbsp;Core Events API
 
-### Subscribe
+&nbsp;&nbsp;Subscribe<br>
 ```vb
 Sub Subscribe(eventTypeName As String, callback As Action(Of Object))
 ```
 Register a callback for a named event type.
 
-### Publish
+&nbsp;&nbsp;Publish<br>
 ```vb
 Sub Publish(eventTypeName As String, eventData As Object)
 ```
 Dispatch an event to all subscribers of that type. 
 
-### Unsubscribe
+&nbsp;&nbsp;Unsubscribe<br>
 ```vb
 Function Unsubscribe(eventTypeName As String, callback As Action(Of Object)) As Boolean
 ```
 Remove a specific callback.  Returns `True` if removed.
 
-### UnsubscribeAll
+&nbsp;&nbsp;UnsubscribeAll<br>
 ```vb
 Function UnsubscribeAll(eventTypeName As String) As Boolean
 ```
@@ -39,9 +38,9 @@ Clear all callbacks for a given event type.
 
 ---
 
-## Custom Event Example
+&nbsp;&nbsp;Custom Event Example
 
-**Publisher (detects change and fires event):**
+**Publisher (detects change and fires event):**<br>
 ```vb
 Dim agg = PluginLocator. Get(Of Object)("EventAggregator")
 Dim lastStatus As String = ""
@@ -55,7 +54,7 @@ Sub CheckStatus(currentStatus As String)
 End Sub
 ```
 
-**Subscriber (reacts to event):**
+**Subscriber (reacts to event):**<br>
 ```vb
 Dim agg = PluginLocator.Get(Of Object)("EventAggregator")
 
@@ -69,28 +68,28 @@ CallByName(agg, "Subscribe", CallType. Method, "StatusChanged", onStatusChanged)
 
 ---
 
-## Spatial Zone Mouse Events
+&nbsp;&nbsp;Spatial Zone Mouse Events
 
-### RegisterZoneForMouseEvents
+RegisterZoneForMouseEvents<br>
 ```vb
 Sub RegisterZoneForMouseEvents(zone As ISpatialZone)
 ```
 Start tracking a zone for enter/leave events. 
 
-### UnregisterZoneForMouseEvents
+UnregisterZoneForMouseEvents<br>
 ```vb
 Sub UnregisterZoneForMouseEvents(zone As ISpatialZone)
 ```
 Stop tracking a zone.
 
-### Built-in Event Types
+&nbsp;&nbsp;Built-in Event Types
 
   Event Name               | Fired When 
 ---------------------------|------------
  `"SpatialZoneMouseEnter"` | Observer ray enters a tracked zone's AABB 
  `"SpatialZoneMouseLeave"` | Observer ray leaves a tracked zone's AABB 
 
-### Event Payload Properties
+Event Payload Properties
 
   Property             |  Type                         | Description 
 -----------------------|-------------------------------|-------------
@@ -99,9 +98,9 @@ Stop tracking a zone.
  `.ObserverOrigin`     | `(Integer, Integer, Integer)` | Observer position 
  `.ObserverUnitVector` | `(Double, Double, Double)`    | Observer look direction 
 
-### Spatial Zone Example
+&nbsp;&nbsp;Spatial Zone Example
 
-**Register a zone for tracking:**
+**Register a zone for tracking:**<br>
 ```vb
 Dim agg = PluginLocator. Get(Of Object)("EventAggregator")
 Dim myZone = api.GetSpatialZone("MyButtonZone")
@@ -109,7 +108,7 @@ Dim myZone = api.GetSpatialZone("MyButtonZone")
 CallByName(agg, "RegisterZoneForMouseEvents", CallType.Method, myZone)
 ```
 
-**Subscribe to enter/leave events:**
+**Subscribe to enter/leave events:**<br>
 ```vb
 Dim onEnter As Action(Of Object) = Sub(evt)
     Dim zoneId = CStr(CallByName(evt, "ZoneId", CallType.Get))
@@ -131,11 +130,11 @@ CallByName(agg, "Subscribe", CallType.Method, "SpatialZoneMouseLeave", onLeave)
 
 ---
 
-## Notes
+&nbsp;&nbsp;Notes
 
-- Polling interval:  100ms
-- Zone detection uses ray-AABB intersection (forward rays only)
-- Store your callback reference to unsubscribe later
+Polling interval:  100ms<br>
+Zone detection uses ray-AABB intersection (forward rays only)<br>
+Store your callback reference to unsubscribe later
 
 ---
 
