@@ -5,7 +5,7 @@ A lightweight pub/sub event bus with spatial-zone mouse enter/leave detection.
 
 &nbsp;&nbsp;Accessing the Plugin<br>
 ```vb
-Dim aggregator = PluginLocator. Get(Of Object)("EventAggregator")
+Dim aggregator = PluginLocator.Get(Of Object)("EventAggregator")
 ```
 
 ---
@@ -42,13 +42,13 @@ Clear all callbacks for a given event type.
 
 **Publisher (detects change and fires event):**<br>
 ```vb
-Dim agg = PluginLocator. Get(Of Object)("EventAggregator")
+Dim agg = PluginLocator.Get(Of Object)("EventAggregator")
 Dim lastStatus As String = ""
 
 Sub CheckStatus(currentStatus As String)
     If currentStatus <> lastStatus Then
         lastStatus = currentStatus
-        Dim payload = New With { . NewValue = currentStatus }
+        Dim payload = New With {.NewValue = currentStatus}
         CallByName(agg, "Publish", CallType.Method, "StatusChanged", payload)
     End If
 End Sub
@@ -102,7 +102,7 @@ Event Payload Properties
 
 **Register a zone for tracking:**<br>
 ```vb
-Dim agg = PluginLocator. Get(Of Object)("EventAggregator")
+Dim agg = PluginLocator.Get(Of Object)("EventAggregator")
 Dim myZone = api.GetSpatialZone("MyButtonZone")
 
 CallByName(agg, "RegisterZoneForMouseEvents", CallType.Method, myZone)
