@@ -1,4 +1,11 @@
 
+
+<br><br>
+
+![](https://s12.gifyu.com/images/bE6ku.gif)
+
+<br><br>
+
 A lightweight pub/sub event bus with spatial-zone mouse enter/leave detection. 
 
 ---
