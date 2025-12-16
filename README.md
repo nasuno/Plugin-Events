@@ -136,3 +136,11 @@ CallByName(agg, "Subscribe", CallType.Method, "SpatialZoneMouseLeave", onLeave)
 - Polling interval:  100ms
 - Zone detection uses ray-AABB intersection (forward rays only)
 - Store your callback reference to unsubscribe later
+
+---
+
+https://github.com/nasuno/Holodeck<br>
+https://github.com/nasuno/Holodeck_API<br>
+https://github.com/nasuno/Plugin-Satellite-Cubes<br>
+https://github.com/nasuno/Plugin-SpatialZone-Demo<br>
+https://github.com/nasuno/Plugin-Menu-System
