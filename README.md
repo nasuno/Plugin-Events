@@ -70,7 +70,7 @@ Dim onStatusChanged As Action(Of Object) = Sub(evt)
     Console.WriteLine($"Status changed to: {newVal}")
 End Sub
 
-CallByName(agg, "Subscribe", CallType. Method, "StatusChanged", onStatusChanged)
+CallByName(agg, "Subscribe", CallType.Method, "StatusChanged", onStatusChanged)
 ```
 
 ---
