@@ -8,9 +8,6 @@
 
 A lightweight pub/sub event bus with spatial-zone mouse enter/leave detection. 
 
----
-
-```
 
 # THE EVENT AGGREGATOR
 
